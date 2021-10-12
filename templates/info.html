@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="topnav">
+    <div class="navheader">
+        President of the United States
+    </div>
+    <div>
+        {% if session.logged_in %}
+        <a href="/presidents">Logout</a>
+        {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Sign up</a>
+        {% endif %}
+    </div>
+
+</div>
+<hr>
+{% for mesg in get_flashed_messages() %}
+<p class="errors">{{ mesg }}</p>
+{% endfor %}
+<div class="row">
+    <div class="col-3">
+        <div class="menu">
+            <ul >
+                <li >
+                    <a href="">Overview</a>
+                </li>
+                <li >
+                    <a href="">Presidents</a>
+                </li>
+                <li >
+                    <a href="">More Info</a>
+                </li>
+            </ul>
+        </div>  
+    </div>
+    <div class="col-6">
+        <h1>HISTORY AND DEVELOPMENT</h1>
+            <p>Coming soon</p>
+    </div>
+    <div class="col-3">
+        <div class="aside">
+          <h3>Residence</h3> 
+            <a href="https://en.wikipedia.org/wiki/White_House"> White House</a>
+            <h3>Seat</h3>
+            <a href="https://en.wikipedia.org/wiki/Washington,_D.C.">Washington, D.C.</a>
+            <h3>Website</h3>
+            <a href="https://www.whitehouse.gov">www.whitehouse.gov</a>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+ {% for x in content %}
+ Today's Date: {{ x }}
+{% endfor %}
+</div>
+
+{% endblock body %}

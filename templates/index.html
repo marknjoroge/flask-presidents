@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="topnav">
+    <div class="navheader">
+        President of the United States
+    </div>
+        {% if session.logged_in %}
+    <div class="nav-ops">Options
+        <div class="dropdown-content">
+            <a href="/reset-password">reset password</a>
+            <a href="/logout">log out</a>
+        </div>
+    </div>
+        {% else %}
+    <div>
+        <a href="/login">Login</a>
+        <a href="/register">Sign up</a>
+        {% endif %}
+    </div>
+
+</div>
+<hr>
+{% for mesg in get_flashed_messages() %}
+<p class="errors">{{ mesg }}</p>
+{% endfor %}
+<div class="row">
+    <div class="col-3">
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="">Overview</a>
+                </li>
+                <li>
+                    <a href="">Presidents</a>
+                </li>
+                <li>
+                    <a href="">More Info</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-6">
+        <h1>THE PRESIDENT</h1>
+        <p>The president of the United States is the head of state and head of government of the United States of
+            America. The president directs the executive branch of the federal government and is the commander-in-chief
+            of the United States Armed Forces.</p>
+        <p>The power of the presidency has grown substantially since its formation, as has the power of the federal
+            government as a whole. While presidential power has ebbed and flowed over time, the presidency has played an
+            increasingly strong role in American political life since the beginning of the 20th century, with a notable
+            expansion during the presidency of Franklin D. Roosevelt. In contemporary times, the president is also
+            looked upon as one of the world's most powerful political figures as the leader of the only remaining global
+            superpower. As the leader of the nation with the largest economy by nominal GDP, the president possesses
+            significant domestic and international hard and soft power.</p>
+        <div class="image">
+            <div>
+                <h4>Presidentail Seal</h4>
+                <img src="/static/images/preview_20211007232242seal.png" />
+            </div>
+            <div>
+                <h4>Presidential Flag</h4>
+                <img src="/static/images/preview_20211007232242flag.png" />
+            </div>
+        </div>
+        <h3>PRESIDENTIAL SEAL PRESIDENTIAL FLAG</h3>
+        <h1>Duties Of The Office</h1>
+        <p>The Constitution succinctly defines presidential functions, powers, and responsibilities. The presidentâ€TMs
+            chief duty is to make sure that the laws are faithfully executed, and this duty is performed through an
+            elaborate system of executive agencies that includes cabinet-level departments. Presidents appoint all
+            cabinet heads and most other high-ranking officials of the executive branch of the federal government. They
+            also nominate all judges of the federal judiciary, including the members of the Supreme Court. Their
+            appointments to executive and judicial posts must be approved by a majority of the Senate (one of the two
+            chambers of Congress, the legislative branch of the federal government, the other being the House of
+            Representatives). The Senate usually confirms these appointments, though it occasionally rejects a nominee
+            to whom a majority of members have strong objections. The president is also the commander in chief of the
+            countryâ€TMs military and has unlimited authority to direct the movements President of the United States of
+            land, sea, and air forces. The president has the power to make treaties with foreign governments, though the
+            Senate must approve such treaties by a two- thirds majority. Finally, the president has the power to approve
+            or reject (veto) bills passed by Congress, though Congress can override the presidentâ€TMs veto by summoning
+            a two-thirds majority in favour of the measure.</p>
+
+    </div>
+    <div class="col-3">
+        <div class="aside">
+            <h3>Residence</h3>
+            <a href="https://en.wikipedia.org/wiki/White_House"> White House</a>
+            <h3>Seat</h3>
+            <a href="https://en.wikipedia.org/wiki/Washington,_D.C.">Washington, D.C.</a>
+            <h3>Website</h3>
+            <a href="https://www.whitehouse.gov">www.whitehouse.gov</a>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    {% for x in content %}
+    Today's Date: {{ x }}
+    {% endfor %}
+</div>
+
+{% endblock body %}
